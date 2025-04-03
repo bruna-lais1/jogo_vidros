@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+
+}
+
+header{
+    background-color: rgba(0,0,0,0.8);
+    color: white;
+    text-align: center;
+    align-content: center;
+    border-radius:20px;
+    margin-top: 30px;
+    display: inline-block;
+    padding: 20px;
+}
+
+body{
+    background-image: url(imagens/fundo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.vidros{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.vidro{
+    flex: auto;
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.vidro:hover{
+    transform: scale(1.1);
+}
+
+#mensagem{
+    background-color: black;
+    color: white;
+    text-align: center;
+    align-content: center;
+}
+
+.mensagem-central {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 2rem;
+    padding: 30px 50px;
+    border-radius: 20px;
+    display: none; /* Começa invisível */
+    z-index: 1000;
+    text-align: center;
+}
+
+.tela-inicial {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.tela-inicial button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}

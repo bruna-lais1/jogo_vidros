@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Vidros</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imagens/favicon.webp" type="image/x-icon">
+</head>
+<body>
+    <body>
+        <div id="telaInicial" class="tela-inicial">
+            <h2>Bem-vindo ao desafio do vidro!</h2>
+            <button onclick="iniciarJogo()">Jogar</button>
+        </div>
+    
+        <main id="jogo" class="jogo" style="display: none;">
+            <header>
+                <h2>Para ganhar, é preciso coragem!</h2>
+                <p>Escolha um vidro para pisar:</p>
+            </header>
+    
+            <div class="vidros">
+                <img src="imagens/vidro.png" class="vidro" onclick="escolherVidro(1)">
+                <img src="imagens/vidro.png" class="vidro" onclick="escolherVidro(2)">
+                <img src="imagens/vidro.png" class="vidro" onclick="escolherVidro(3)">
+                <img src="imagens/vidro.png" class="vidro" onclick="escolherVidro(4)">
+                <img src="imagens/vidro.png" class="vidro" onclick="escolherVidro(5)">
+            </div>
+        </main>
+    
+        <div id="mensagemCentral" class="mensagem-central"></div>
+    <script>
+
+let rodada = 1;
+
+// Função para iniciar o jogo
+function iniciarJogo() {
+    document.getElementById("telaInicial").style.display = "none"; // Esconde a tela inicial
+    document.getElementById("jogo").style.display = "block"; // Mostra os vidros
+    rodada = 1; // Reinicia o jogo
+}
+
+// Função para mostrar mensagem no meio da tela
+function mostrarMensagem(texto) {
+    const msg = document.getElementById("mensagemCentral");
+    msg.innerText = texto;
+    msg.style.display = "block";
+
+    // Esconde a mensagem após 2 segundos
+    setTimeout(() => {
+        msg.style.display = "none";
+    }, 2000);
+}
+
+// Função quando um vidro for escolhido
+function escolherVidro(escolhaJogador) {
+    let pisoQuebrado = Math.floor(Math.random() * 5) + 1;
+
+    if (escolhaJogador === pisoQuebrado) {
+        mostrarMensagem("💥 O vidro quebrou! Você perdeu!");
+        setTimeout(() => voltarParaInicio(), 2000); // Volta para a tela inicial
+    } else {
+        rodada++;
+
+        if (rodada > 5) {
+            mostrarMensagem("Parabéns! Você venceu o jogo!");
+            setTimeout(() => voltarParaInicio(), 2000); // Volta para a tela inicial
+        } else {
+            mostrarMensagem("✅ Você passou! Escolha outro vidro.");
+        }
+    }
+}
+
+// Função para voltar para a tela inicial
+function voltarParaInicio() {
+    document.getElementById("jogo").style.display = "none"; // Esconde o jogo
+    document.getElementById("telaInicial").style.display = "block"; // Mostra a tela inicial
+}
+</script>
+</body>
+</html>
